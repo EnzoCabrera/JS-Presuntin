@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Média</title>
+</head>
+<body>
+
+<script>
+
+function calcularMedia(valores) {
+    var total = 0;
+    for (var i = 0; i < valores.length; i++) {
+        total += valores[i];
+    }
+    return total / valores.length;
+}
+
+
+var numeros = [];
+
+
+while (true) {
+    var entrada = prompt("Digite um número ou 'm' para calcular a média:");
+
+   
+    if (entrada === "m") {
+        
+        if (numeros.length > 0) {
+            var media = calcularMedia(numeros);
+            alert("A média dos números digitados é: " + media.toFixed(2));
+        } else {
+            alert("Nenhum número foi digitado.");
+        }
+        break; 
+    }
+
+    
+    var numero = parseFloat(entrada);
+    if (!isNaN(numero)) {
+        numeros.push(numero); 
+    } else {
+        alert("Por favor, insira um número válido.");
+    }
+}
+</script>
+
+</body>
+</html>

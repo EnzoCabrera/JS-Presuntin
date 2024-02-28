@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora Fibonacci</title>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+</head>
+<body>
+
+<label for="numero">Digite o valor de n:</label>
+<input type="number" id="numero">
+<button onclick="gerarSequenciaFibonacci()">Gerar Sequência</button>
+
+<div id="tabelaContainer"></div>
+
+<script>
+function gerarSequenciaFibonacci() {
+    var n = parseInt(document.getElementById("numero").value);
+    var tabelaContainer = document.getElementById("tabelaContainer");
+
+    // Limpa o conteúdo atual
+    tabelaContainer.innerHTML = "";
+
+    // Cria a tabela
+    var tabela = document.createElement("table");
+
+    // Cria e adiciona o cabeçalho da tabela
+    var cabecalho = tabela.createTHead();
+    var linhaCabecalho = cabecalho.insertRow();
+    var thIndice = document.createElement("th");
+    thIndice.textContent = "Índice";
+    linhaCabecalho.appendChild(thIndice);
+    var thValor = document.createElement("th");
+    thValor.textContent = "Valor";
+    linhaCabecalho.appendChild(thValor);
+
+    // Calcula e adiciona os elementos da sequência de Fibonacci à tabela
+    for (var i = 0; i < n; i++) {
+        var fib = calcularElementoFibonacci(i);
+        var linha = tabela.insertRow();
+        var celulaIndice = linha.insertCell(0);
+        celulaIndice.textContent = i + 1;
+        var celulaValor = linha.insertCell(1);
+        celulaValor.textContent = fib;
+    }
+
+    // Adiciona a tabela ao container
+    tabelaContainer.appendChild(tabela);
+}
+
+function calcularElementoFibonacci(n) {
+    if (n <= 1) {
+        return n;
+    } else {
+        var a = 0;
+        var b = 1;
+        var temp;
+
+        for (var i = 2; i <= n; i++) {
+            temp = a + b;
+            a = b;
+            b = temp;
+        }
+        return b;
+    }
+}
+</script>
+
+</body>
+</html>

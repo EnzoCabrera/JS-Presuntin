@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabela de Números Aleatórios</title>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 50%;
+        margin: auto;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+</head>
+<body>
+
+<h2>Tabela de Números Aleatórios</h2>
+
+<div id="tabelaContainer"></div>
+
+<script>
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+
+function gerarTabela() {
+    var tabelaContainer = document.getElementById("tabelaContainer");
+
+    
+    tabelaContainer.innerHTML = "";
+
+    
+    var tabela = document.createElement("table");
+
+    
+    for (var i = 0; i < 4; i++) {
+        var linha = tabela.insertRow();
+
+        for (var j = 0; j < 4; j++) {
+            var celula = linha.insertCell();
+            celula.textContent = getRandomInt(1, 100); 
+        }
+    }
+
+    
+    tabelaContainer.appendChild(tabela);
+}
+
+
+window.onload = function() {
+    gerarTabela();
+};
+</script>
+
+</body>
+</html>

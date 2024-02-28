@@ -1,4 +1,4 @@
-console.log("Hello");
+/*console.log("Hello");
 var x = 1;
 var y = 2.1;
 
@@ -28,7 +28,7 @@ console.log(pessoa);
 
 const aviao = {
     modelo: 'Boeing 777',
-    cor: 'vermelhor',
+    cor: 'vermelho',
     motor: 'V12'
 }
 console.log(aviao);
@@ -48,4 +48,4 @@ function funcaoComParametro(nome, sobrenome) {
 funcaoComParametro()
 
 for(let i = 0; i < 10; i++)
-    console.log(`Numero ${i}`);
+    console.log(`Numero ${i}`);*/

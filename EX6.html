@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verificação de Padrão de Telefone</title>
+</head>
+<body>
+
+<label for="telefone">Telefone (formato ddddd-dddd):</label>
+<input type="text" id="telefone" name="telefone">
+<button onclick="verificarTelefone()">Verificar</button>
+<p id="mensagem"></p>
+
+<script>
+function verificarTelefone() {
+    var telefoneCampo = document.getElementById("telefone");
+    var telefone = telefoneCampo.value;
+
+    
+    var padraoTelefone = /^\d{5}-\d{4}$/;
+
+    if (padraoTelefone.test(telefone)) {
+        document.getElementById("mensagem").textContent = "Telefone válido.";
+        document.getElementById("mensagem").style.color = "green";
+    } else {
+        document.getElementById("mensagem").textContent = "Telefone inválido. Insira no formato dddd-dddd.";
+        document.getElementById("mensagem").style.color = "red";
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aplicação Cliente</title>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+</head>
+<body>
+
+<label for="numero">Número de Linhas:</label>
+<input type="number" id="numero">
+
+<label for="texto">Texto:</label>
+<input type="text" id="texto">
+
+<button id="criarTabela">Criar Tabela</button>
+
+<div id="tabelaContainer"></div>
+
+<script>
+document.getElementById("criarTabela").addEventListener("click", function() {
+    var numeroLinhas = parseInt(document.getElementById("numero").value);
+    var texto = document.getElementById("texto").value;
+    var tabelaContainer = document.getElementById("tabelaContainer");
+    
+    
+    tabelaContainer.innerHTML = "";
+    
+    
+    var tabela = document.createElement("table");
+    
+    
+    var cabecalho = tabela.createTHead();
+    var linhaCabecalho = cabecalho.insertRow();
+    var thIndice = document.createElement("th");
+    thIndice.textContent = "Índice";
+    var thConteudo = document.createElement("th");
+    thConteudo.textContent = "Conteúdo";
+    linhaCabecalho.appendChild(thIndice);
+    linhaCabecalho.appendChild(thConteudo);
+    
+  
+    for (var i = 0; i < numeroLinhas; i++) {
+        var linha = tabela.insertRow();
+        var celulaIndice = linha.insertCell(0);
+        var celulaConteudo = linha.insertCell(1);
+        celulaIndice.textContent = i + 1;
+        celulaConteudo.textContent = texto;
+    }
+    
+    
+    tabelaContainer.appendChild(tabela);
+});
+</script>
+
+</body>
+</html>
